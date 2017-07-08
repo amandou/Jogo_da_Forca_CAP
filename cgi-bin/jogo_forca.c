@@ -14,20 +14,25 @@ int main(){
   char *pLink;
   char resposta[1000] = {'\n'};
   FILE *pJogadores;
+  srand(time(NULL));    //Gera números aleatórios com base no tempo
 
   pLink = getenv("QUERY_STRING");
   if (pLink == NULL)
     snprintf(resposta, sizeof resposta, "Ocorreu um erro!\n");
-  else if(sscanf(pLink, "nome=%[^&]&ra=%d", jog.nome, &jog.ra)){
-    if(jog.ra <= 0)
-      snprintf(resposta, sizeof resposta, "Digite um RA válido! %d", jog.ra);
-    else if(strlen(jog.nome) == 0)
-      snprintf(resposta, sizeof resposta, "Digite um nome!");
-    else
-      pJogadores = fopen("jogadores.txt", "a");
-      fprintf(pJogadores, "Nome: %s\n", jog.nome);
-      fprintf(pJogadores, "RA: %d\nPartidas: %d\n\n", jog.ra, jog.partidas=0);
-  }
+  else
+    if(sscanf(pLink, "nome=%[^&]&ra=%d", jog.nome, &jog.ra))
+    {
+      if(jog.ra <= 0)
+        snprintf(resposta, sizeof resposta, "Digite um RA válido!");
+      else if(strlen(jog.nome) == 0)
+        snprintf(resposta, sizeof resposta, "Digite um nome!");
+      else
+      {
+        pJogadores = fopen("jogadores.txt", "a");
+        fprintf(pJogadores, "Nome: %s\n", jog.nome);
+        fprintf(pJogadores, "RA: %d\nPartidas: %d\n\n", jog.ra, jog.partidas=0);
+      }
+    }
 
   printf("%s%c%c\n","Content-Type:text/html;charset=UTF-8",13,10);
   printf("<!DOCTYPE html>");
