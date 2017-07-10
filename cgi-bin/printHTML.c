@@ -24,10 +24,13 @@ void impressaoHTML (int numeroResposta){
   printf("%s%c%c\n","Content-Type:text/html;charset=UTF-8",13,10);
   printf("<!DOCTYPE html>");
   printf("<html lang=\"en\">");
+
   printf("<head>");
   printf("<meta charset=\"utf-8\">");
   printf("<title>Jogo da Forca</title>");
+  printf("<link href = "jogo_forca_css.css" rel="stylesheet" /> "); // colocar o css aqui???
   printf("</head>");
+
   printf("<body>");
   printf("<!-- page content -->");
   printf("%s", resposta);

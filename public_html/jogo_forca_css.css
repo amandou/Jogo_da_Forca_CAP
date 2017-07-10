@@ -1,8 +1,20 @@
 body {
-	text-align: center;
-    background-color: red;
+		text-align: center;
+    background-image: url("http://4.bp.blogspot.com/-vxWMBjUjE6c/VLAQyoleS5I/AAAAAAAAC_4/K8H4r2GgvJk/s1600/tma-chalkboard.jpg");
 }
 
 h1{
+	color: white;
+  font-family:Book Antiqua;
+  font-size: 40px;
+	word-spacing: 10px;;
+  font-style: oblique;
+	font-weight: bold;
 
+}
+
+label{
+	color: white;
+	font-size: 24;
+	font-weight: bold;
 }
