@@ -6,9 +6,9 @@
 
 1. * [ ] Programação em C
   + * [x]   Sistema de Cadastro - _Vanderlei (08/07/2017)_
-  + * [ ]   Leitura de Palavras do Arquivo
-  + * [ ]   Aleatoriedade na Leitura de Palavras
-  + * [ ]   Mesma Palavra Durante a Partida
+  + * [x]   Leitura de Palavras do Arquivo - _Vanderlei (Obrigado [Lorhan](https://github.com/LorhanSohaky))(10/07/2017)_
+  + * [x]   Aleatoriedade na Leitura de Palavras - _Vanderlei e Amanda(10/07/2017)_
+  + * [x]   Mesma Palavra Durante a Partida - _Vanderlei e Amanda(10/07/2017)_
   + * [ ]   Receber Dados e Compará-los
   + * [ ]   Retornar Letras Corretas e Erradas
   + * [ ]   Condições de Vitória

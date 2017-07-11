@@ -1,3 +1,7 @@
-programar
-jogar
-estudar
+BATATA
+ARROZ
+FEIJAO
+MACARRAO
+FRANGO
+LASANHA
+PIZZA

@@ -13,7 +13,7 @@ int antigoJogador (int ra){
   while((fgets(linha, sizeof(linha), pJogadores) != NULL) && (flag==0)){
     sscanf(linha, "RA: %d", &raArquivo);
     if (raArquivo == ra)
-      flag = 10;
+      flag=10;
   }
   return flag;
 }
