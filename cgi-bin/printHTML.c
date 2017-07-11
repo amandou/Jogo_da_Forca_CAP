@@ -16,7 +16,10 @@ void impressaoHTML (int numeroResposta){
         snprintf(resposta, sizeof resposta, "Digite um RA válido!");
         break;
       case 10:
-        snprintf(resposta, sizeof resposta, "Tudo deu certo... Ou quase...");
+        snprintf(resposta, sizeof resposta, "<div2>Tudo deu certo... Ou quase...</div2>");
+        break;
+      case 11:
+        snprintf(resposta, sizeof resposta, "<div2>Primeira vez hein... Boa sorte</div2>");
         break;
   }
 
@@ -27,10 +30,11 @@ void impressaoHTML (int numeroResposta){
   printf("<head>");
   printf("<meta charset=\"utf-8\">");
   printf("<title>Jogo da Forca</title>");
-  printf("<link href = \"jogo_forca_css.css\" rel=\"stylesheet\" />");
+  printf("<center><img src=\"../media/logo.png\"></center>");
+  printf("<link href = \"../jogo_forca_css.css\" rel=\"stylesheet\" />");
   printf("</head>");
   printf("<body>");
-  printf("<!-- page content -->");
+  printf("<!-- Conteudo da Página -->");
   printf("%s", resposta);
   printf("</body>");
   printf("</html>");

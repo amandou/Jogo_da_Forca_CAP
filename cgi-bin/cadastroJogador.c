@@ -39,7 +39,7 @@ int verificacaoJogador (char* link){
 
 //Função para cadastro de novos jogadores
 int novoJogador (char* link){
-  int flag=0;
+  int flag=11;
   struct jogador{
       char nome[60];
       int ra, partidas;

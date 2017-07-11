@@ -39,6 +39,14 @@ div2{
 	font-weight: bold;
 }
 
+divHistoria{
+  color: black;
+  font-size: 30px;
+  font-family: Book Antiqua;
+  font-style: oblique;
+  text-align: center;
+}
+
 #butao{
 	background-color: transparent;
 	background-image: url(media/LeverTop.png);
