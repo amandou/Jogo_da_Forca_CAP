@@ -33,7 +33,7 @@ int main(){
 
         //Escolhendo palavra aleatóriamente
           rewind(pArquivo);
-            for(i=0; i<rand()%nLinhas; i++){
+            for(i=0; i<rand()%nLinhas+1; i++){
               fscanf(pArquivo, "%s\n", &palavra);
             }
             fclose(pArquivo);
