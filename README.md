@@ -21,8 +21,8 @@
   + * [ ]   Formatação e Ajuste de Tamanhos e Fontes
 
 3. * [ ]  Mídia
-  + * [ ]   Criação de Background
-  + * [ ]   Criação do Logo
+  + * [x]   Criação de Background
+  + * [x]   Criação do Logo
   + * [ ]   Criação de Botões e etc.
 
 4. * [ ]  Extras
