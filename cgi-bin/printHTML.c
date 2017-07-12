@@ -16,10 +16,10 @@ void impressaoHTML (int numeroResposta){
         snprintf(resposta, sizeof resposta, "Digite um RA válido!");
         break;
       case 10:
-        snprintf(resposta, sizeof resposta, "<div2>Tudo deu certo... Ou quase...</div2>");
+        snprintf(resposta, sizeof resposta, "<div1>Tudo deu certo... Ou quase...</div1>");
         break;
       case 11:
-        snprintf(resposta, sizeof resposta, "<div2>Primeira vez hein... Boa sorte</div2>");
+        snprintf(resposta, sizeof resposta, "<div1>Cadastro feito com sucesso... Boa Sorte!<br></div1><input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"history.go(-1)\">");
         break;
   }
 
@@ -36,6 +36,9 @@ void impressaoHTML (int numeroResposta){
   printf("<body>");
   printf("<!-- Conteudo da Página -->");
   printf("%s", resposta);
+  printf("<div id=\"fooster\">");
+  printf("Trabalho feito por Amanda Lima Ribeiro e Vanderlei de Brito Junior - UFSCar - CAP 2017/01");
+  printf("</div>");
   printf("</body>");
   printf("</html>");
 }

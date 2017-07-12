@@ -21,8 +21,8 @@
   + * [ ]   Formatação e Ajuste de Tamanhos e Fontes
 
 3. * [ ]  Mídia
-  + * [x]   Criação de Background
-  + * [x]   Criação do Logo
+  + * [x]   Criação de Background - _Amanda (11/07/2017)_
+  + * [x]   Criação do Logo - _Vanderlei (09/07/2017)_
   + * [ ]   Criação de Botões e etc.
 
 4. * [ ]  Extras

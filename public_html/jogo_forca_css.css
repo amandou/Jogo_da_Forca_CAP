@@ -35,9 +35,9 @@ div1{
 	font-weight: bold;
 }
 
-#butao{
+#botaoIniciar{
 	background-color: transparent;
-	background-image: url("media/LeverTop.png");
+	background-image: url("media/button.png");
 	border: solid 0px #000000;
 	margin-right: 80px;
 	margin-top: 35px;
@@ -45,8 +45,22 @@ div1{
 	height: 100px;
 }
 
-#butao:hover{
-	background-image: url("media/LeverLower.png");
+#botaoIniciar:hover{
+	background-image: url("media/buttonPlay.png");
+}
+
+
+#botaoVoltar{
+	background-color: transparent;
+	background-image: url("media/button.png");
+	border: solid 0px #000000;
+	margin-top: 35px;
+	width: 200px;
+	height: 100px;
+}
+
+#botaoVoltar:hover{
+	background-image: url("media/buttonBack.png");
 }
 
 #fooster{
