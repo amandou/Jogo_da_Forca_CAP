@@ -24,7 +24,6 @@ h1{
 	word-spacing: 10px;;
   font-style: oblique;
 	font-weight: bold;
-
 }
 
 div1{
@@ -34,6 +33,23 @@ div1{
 	font-style: oblique;
 	font-weight: bold;
 }
+
+divderrota{
+	color: white;
+	font-size: 400px;
+	font-family: DJB Chalk It Up;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+divvitoria{
+	color: white;
+	font-size: 400px;
+	font-family: DJB Chalk It Up;
+	font-style: oblique;
+	font-weight: bold;
+}
+
 
 #botaoIniciar{
 	background-color: transparent;

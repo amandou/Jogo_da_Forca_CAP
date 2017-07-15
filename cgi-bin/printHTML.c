@@ -6,7 +6,7 @@
 void impressaoHTML (int numeroResposta){
   FILE *pArquivo;
   char resposta[1000]={'\n'};
-  char erro[7] = {' '};
+  char erro[7] = {' '},palavraEscolhida[15] = {' '},tracos[15] = {' '};
 
   switch(numeroResposta){
       case 1:
@@ -24,66 +24,76 @@ void impressaoHTML (int numeroResposta){
 
       pArquivo = fopen("arquivos/letrasErradas.txt","r"); // Abertura do arquivo letras erradas
       fscanf(pArquivo, "%s", erro); // Leitura do arquivo, daddos do arquivo vão para variavel (arquivo -> variavel)
+      fclose(pArquivo);
 
-      if(strlen(erro) == 0) // Se o jogador não errou nenhuma vez
+      fopen("tracos.txt","r");
+      fscanf(pArquivo,"%s",tracos);
+      if(strlen(erro) == 0 ) // Se o jogador não errou nenhuma vez
         {
           snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman0.png\" id = \"imagemForca\">"  //Imagem da forca
+                                              "<div1> %s </div1>"
                                               "<form action = \"jogo_forca.cgi\">"
                                               "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                               "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
                                               "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
                                               "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
-                                              "</form>");
+                                              "</form>",tracos);
         }
       else if(strlen(erro) == 1) // Se o jogador errou 1 vez
       {
         snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman1.png\" id = \"imagemForca\">"  //Imagem da forca
+
+                                            "<div1> %s </div1>"
                                             "<form action = \"jogo_forca.cgi\">"
                                             "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                             "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
                                             "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
                                             "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
-                                            "</form>");
+                                            "</form>",tracos);
       }
       else if(strlen(erro) == 2) // Se o jogador errou 2 vezes
       {
         snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman2.png\" id = \"imagemForca\">"  //Imagem da forca
+                                            "<div1> %s </div1>"
                                             "<form action = \"jogo_forca.cgi\">"
                                             "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                             "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
                                             "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
                                             "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
-                                            "</form>");
+                                            "</form>",tracos);
       }
       else if(strlen(erro) == 3) // Se o jogador errou 3 vezes
       {
         snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman3.png\" id = \"imagemForca\">"  //Imagem da forca
+                                            "<div1> %s </div1>"
                                             "<form action = \"jogo_forca.cgi\">"
                                             "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                             "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
                                             "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
                                             "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
-                                            "</form>");
+                                            "</form>",tracos);
       }
       else if(strlen(erro) == 4) // Se o jogador errou 4 vezes
       {
         snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman4.png\" id = \"imagemForca\">"  //Imagem da forca
+                                            "<div1> %s </div1>"
                                             "<form action = \"jogo_forca.cgi\">"
                                             "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                             "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
                                             "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
                                             "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
-                                            "</form>");
+                                            "</form>",tracos);
       }
       else if(strlen(erro) == 5) // Se o jogador errou 5 vezes
       {
         snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman5.png\" id = \"imagemForca\">"  //Imagem da forca
+                                            "<div1> %s </div1>"
                                             "<form action = \"jogo_forca.cgi\">"
                                             "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                             "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
                                             "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
                                             "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
-                                            "</form>");
+                                            "</form>",tracos);
       }
       // Caso o jogador erre pela 6 vez a flag 12 é atingga, portanto o jogador perde
       fclose(pArquivo);
@@ -94,14 +104,33 @@ void impressaoHTML (int numeroResposta){
                                             "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"history.go(-1)\">");
         break;
 
+        // Se o jogador Perdeu
       case 12:
-        snprintf(resposta, sizeof resposta, "Derrota <br>");
-                                            //"<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"url\">"
+        pArquivo = fopen("palavraEscolhida.txt","r"); // Abertura do arquivo da palavra escolhida randomicamente
+        fscanf(pArquivo, "%s", palavraEscolhida); // leitura da palavra escolhida
+        snprintf(resposta, sizeof resposta, "<divderrota> Derrota! </divderrota>"
+                                            "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"../jogo_forca_html.html\">"
+                                            "<div1> A palavra a ser advinhada e %s </div1>",palavraEscolhida);
+        fclose(pArquivo);
+        remove("arquivos/tracos.txt");
+        remove("arquivos/letrasErradas.txt");
+        remove("arquivos/letrasCorretas.txt");
+        remove("arquivos/palavraEscolhida.txt");
+        pArquivo = NULL;
+
         break;
 
+        // Se o jogador ganhou
       case 13:
-        snprintf(resposta, sizeof resposta, "Vitoria <br>");
-                                            //"<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"url\">"
+        snprintf(resposta, sizeof resposta, "<divvitoria> Vitoria! </divvitoria>"
+                                            "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"../jogo_forca_html.html\">
+                                                    ");
+        remove("arquivos/tracos.txt");
+        remove("arquivos/letrasErradas.txt");
+        remove("arquivos/letrasCorretas.txt");
+        remove("arquivos/palavraEscolhida.txt");
+
+
         break;
   }
 
