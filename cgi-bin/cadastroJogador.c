@@ -9,7 +9,7 @@ int antigoJogador (int ra){
   char linha[100];
   FILE *pJogadores;
 
-  pJogadores = fopen("jogadores.txt", "r");
+  pJogadores = fopen("arquivos/jogadores.txt", "r");
   while((fgets(linha, sizeof(linha), pJogadores) != NULL) && (flag==0)){
     sscanf(linha, "RA: %d", &raArquivo);
     if (raArquivo == ra)
@@ -51,7 +51,7 @@ int novoJogador (char* link){
     flag=1;
   else{
     sscanf(link, "nome=%[^&]&ra=%d", jogador.nome, &jogador.ra);
-    pJogadores = fopen("jogadores.txt", "a");
+    pJogadores = fopen("arquivos/jogadores.txt", "a");
     fprintf(pJogadores, "NOME: %s\n", jogador.nome);
     fprintf(pJogadores, "RA: %d\nPARTIDAS: %d\n\n", jogador.ra, jogador.partidas=0);
   }

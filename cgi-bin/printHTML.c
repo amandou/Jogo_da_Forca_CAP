@@ -22,44 +22,68 @@ void impressaoHTML (int numeroResposta){
         // Se o jogador já tiver conta criada
       case 10:
 
-      pArquivo = fopen("letrasErradas.txt","r"); // Abertura do arquivo letras erradas
-      fscanf(pArquivo,"%s",erro); // Leitura do arquivo, daddos do arquivo vão para variavel (arquivo -> variavel)
+      pArquivo = fopen("arquivos/letrasErradas.txt","r"); // Abertura do arquivo letras erradas
+      fscanf(pArquivo, "%s", erro); // Leitura do arquivo, daddos do arquivo vão para variavel (arquivo -> variavel)
 
       if(strlen(erro) == 0) // Se o jogador não errou nenhuma vez
         {
-          snprintf(resposta, sizeof resposta, "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
-                                            "<img src=\"media/hangman0.png\" id = \"imagemForca\">"  //Imagem da forca
-                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">"); //Botão de tentativa
+          snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman0.png\" id = \"imagemForca\">"  //Imagem da forca
+                                              "<form action = \"jogo_forca.cgi\">"
+                                              "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
+                                              "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
+                                              "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
+                                              "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
+                                              "</form>");
         }
       else if(strlen(erro) == 1) // Se o jogador errou 1 vez
       {
-        snprintf(resposta, sizeof resposta, "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
-                                            "<img src=\"media/hangman1.png\" id = \"imagemForca\">"  //Imagem da forca
-                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">"); //Botão de tentativa
+        snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman1.png\" id = \"imagemForca\">"  //Imagem da forca
+                                            "<form action = \"jogo_forca.cgi\">"
+                                            "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
+                                            "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
+                                            "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
+                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
+                                            "</form>");
       }
       else if(strlen(erro) == 2) // Se o jogador errou 2 vezes
       {
-        snprintf(resposta, sizeof resposta, "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
-                                            "<img src=\"media/hangman2.png\" id = \"imagemForca\">"  //Imagem da forca
-                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">"); //Botão de tentativa
+        snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman2.png\" id = \"imagemForca\">"  //Imagem da forca
+                                            "<form action = \"jogo_forca.cgi\">"
+                                            "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
+                                            "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
+                                            "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
+                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
+                                            "</form>");
       }
       else if(strlen(erro) == 3) // Se o jogador errou 3 vezes
       {
-        snprintf(resposta, sizeof resposta, "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
-                                            "<img src=\"media/hangman3.png\" id = \"imagemForca\">"  //Imagem da forca
-                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">"); //Botão de tentativa
+        snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman3.png\" id = \"imagemForca\">"  //Imagem da forca
+                                            "<form action = \"jogo_forca.cgi\">"
+                                            "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
+                                            "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
+                                            "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
+                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
+                                            "</form>");
       }
       else if(strlen(erro) == 4) // Se o jogador errou 4 vezes
       {
-        snprintf(resposta, sizeof resposta, "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
-                                            "<img src=\"media/hangman4.png\" id = \"imagemForca\">"  //Imagem da forca
-                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">"); //Botão de tentativa
+        snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman4.png\" id = \"imagemForca\">"  //Imagem da forca
+                                            "<form action = \"jogo_forca.cgi\">"
+                                            "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
+                                            "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
+                                            "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
+                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
+                                            "</form>");
       }
       else if(strlen(erro) == 5) // Se o jogador errou 5 vezes
       {
-        snprintf(resposta, sizeof resposta, "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
-                                            "<img src=\"media/hangman5.png\" id = \"imagemForca\">"  //Imagem da forca
-                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">"); //Botão de tentativa
+        snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman5.png\" id = \"imagemForca\">"  //Imagem da forca
+                                            "<form action = \"jogo_forca.cgi\">"
+                                            "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
+                                            "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
+                                            "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
+                                            "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
+                                            "</form>");
       }
       // Caso o jogador erre pela 6 vez a flag 12 é atingga, portanto o jogador perde
       fclose(pArquivo);
