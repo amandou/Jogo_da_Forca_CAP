@@ -9,21 +9,21 @@
   + * [x]   Leitura de Palavras do Arquivo - _Vanderlei (Obrigado [Lorhan](https://github.com/LorhanSohaky))(10/07/2017)_
   + * [x]   Aleatoriedade na Leitura de Palavras - _Vanderlei e Amanda(10/07/2017)_
   + * [x]   Mesma Palavra Durante a Partida - _Vanderlei e Amanda(10/07/2017)_
-  + * [ ]   Receber Dados e Compará-los
+  + * [x]   Receber Dados e Compará-los - _Amanda e Vanderlei(14/07/2017)_
   + * [ ]   Retornar Letras Corretas e Erradas
-  + * [ ]   Condições de Vitória
-  + * [ ]   Condições de Derrota
+  + * [x]   Condições de Vitória - _Amanda e Vanderlei(14/07/2017)_
+  + * [x]   Condições de Derrota - _Amanda e Vanderlei(14/07/2017)_
 
 2. * [ ] Formatação em HTML/CSS
   + * [x]   Criação Inicial - _Amanda (07/07/2017)_
-  + * [ ]   Criação de Campos de Recebimento de Dados
-  + * [ ]   Criação de Campos de Impressão de Dados
+  + * [x]   Criação de Campos de Recebimento de Dados - _Amanda(14/07/2017)_
+  + * [x]   Criação de Campos de Impressão de Dados - _Amanda(15/07/2017)_
   + * [ ]   Formatação e Ajuste de Tamanhos e Fontes
 
-3. * [ ]  Mídia
+3. * [x]  Mídia
   + * [x]   Criação de Background - _Amanda (09/07/2017)_
   + * [x]   Criação do Logo - _Vanderlei (11/07/2017)_
-  + * [ ]   Criação de Botões e etc.
+  + * [x]   Criação de Botões e etc. - _Amanda e Vanderlei(14/07/2017)_
 
 4. * [ ]  Extras
   + * [ ]   Contagem de Partidas

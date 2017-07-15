@@ -23,11 +23,17 @@ void impressaoHTML (int numeroResposta){
       case 10:
 
       pArquivo = fopen("arquivos/letrasErradas.txt","r"); // Abertura do arquivo letras erradas
+      if(pArquivo == NULL)
+        printf("ERRO! 10.1");
+
       fscanf(pArquivo, "%s", erro); // Leitura do arquivo, daddos do arquivo vão para variavel (arquivo -> variavel)
       fclose(pArquivo);
 
-      fopen("tracos.txt","r");
-      fscanf(pArquivo,"%s",tracos);
+      pArquivo = fopen("arquivos/tracos.txt","r");
+      if(pArquivo == NULL)
+        printf("ERRO! 10.2");
+
+      fscanf(pArquivo,"%s", tracos);
       if(strlen(erro) == 0 ) // Se o jogador não errou nenhuma vez
         {
           snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman0.png\" id = \"imagemForca\">"  //Imagem da forca
@@ -42,8 +48,7 @@ void impressaoHTML (int numeroResposta){
       else if(strlen(erro) == 1) // Se o jogador errou 1 vez
       {
         snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman1.png\" id = \"imagemForca\">"  //Imagem da forca
-
-                                            "<div1> %s </div1>"
+                                            "<div1>%s  </div1>"
                                             "<form action = \"jogo_forca.cgi\">"
                                             "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                             "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
@@ -54,7 +59,7 @@ void impressaoHTML (int numeroResposta){
       else if(strlen(erro) == 2) // Se o jogador errou 2 vezes
       {
         snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman2.png\" id = \"imagemForca\">"  //Imagem da forca
-                                            "<div1> %s </div1>"
+                                            "<div1> %s  </div1>"
                                             "<form action = \"jogo_forca.cgi\">"
                                             "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                             "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
@@ -65,7 +70,7 @@ void impressaoHTML (int numeroResposta){
       else if(strlen(erro) == 3) // Se o jogador errou 3 vezes
       {
         snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman3.png\" id = \"imagemForca\">"  //Imagem da forca
-                                            "<div1> %s </div1>"
+                                            "<div1>%s </div1>"
                                             "<form action = \"jogo_forca.cgi\">"
                                             "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                             "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
@@ -76,7 +81,7 @@ void impressaoHTML (int numeroResposta){
       else if(strlen(erro) == 4) // Se o jogador errou 4 vezes
       {
         snprintf(resposta, sizeof resposta, "<img src=\"../media/hangman4.png\" id = \"imagemForca\">"  //Imagem da forca
-                                            "<div1> %s </div1>"
+                                            "<div1> %s  </div1>"
                                             "<form action = \"jogo_forca.cgi\">"
                                             "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
                                             "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
@@ -106,11 +111,13 @@ void impressaoHTML (int numeroResposta){
 
         // Se o jogador Perdeu
       case 12:
-        pArquivo = fopen("palavraEscolhida.txt","r"); // Abertura do arquivo da palavra escolhida randomicamente
-        fscanf(pArquivo, "%s", palavraEscolhida); // leitura da palavra escolhida
+        pArquivo = fopen("arquivos/palavraEscolhida.txt","r"); // Abertura do arquivo da palavra escolhida randomicamente
+        if(pArquivo == NULL)
+          printf("ERRO! 12");
+        fscanf(pArquivo, "%s", &palavraEscolhida); // leitura da palavra escolhida
         snprintf(resposta, sizeof resposta, "<divderrota> Derrota! </divderrota>"
-                                            "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"../jogo_forca_html.html\">"
-                                            "<div1> A palavra a ser advinhada e %s </div1>",palavraEscolhida);
+                                            "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"parent.location=\'http://cap.dc.ufscar.br/~636932/jogo_forca_html.html\'\">"
+                                            "<div1> A palavra era: %s </div1>", palavraEscolhida);
         fclose(pArquivo);
         remove("arquivos/tracos.txt");
         remove("arquivos/letrasErradas.txt");
@@ -123,13 +130,11 @@ void impressaoHTML (int numeroResposta){
         // Se o jogador ganhou
       case 13:
         snprintf(resposta, sizeof resposta, "<divvitoria> Vitoria! </divvitoria>"
-                                            "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"../jogo_forca_html.html\">
-                                                    ");
+                                            "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"parent.location=\'http://cap.dc.ufscar.br/~636932/jogo_forca_html.html\'\">");
         remove("arquivos/tracos.txt");
         remove("arquivos/letrasErradas.txt");
         remove("arquivos/letrasCorretas.txt");
         remove("arquivos/palavraEscolhida.txt");
-
 
         break;
   }
