@@ -19,7 +19,16 @@ void impressaoHTML (int numeroResposta){
         snprintf(resposta, sizeof resposta, "<div1>Tudo deu certo... Ou quase...</div1>");
         break;
       case 11:
-        snprintf(resposta, sizeof resposta, "<div1>Cadastro feito com sucesso... Boa Sorte!<br></div1><input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"history.go(-1)\">");
+        snprintf(resposta, sizeof resposta, "<div1>Cadastro feito com sucesso... Boa Sorte!<br></div1>"
+                                            "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"history.go(-1)\">");
+        break;
+      case 12:
+        snprintf(resposta, sizeof resposta, "Derrota <br>");
+                                            //"<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"url\">"
+        break;
+      case 13:
+        snprintf(resposta, sizeof resposta, "Vitoria <br>");
+                                            //"<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"url\">"
         break;
   }
 
@@ -34,7 +43,7 @@ void impressaoHTML (int numeroResposta){
   printf("<link href = \"../jogo_forca_css.css\" rel=\"stylesheet\" />");
   printf("</head>");
   printf("<body>");
-  printf("<!-- Conteudo da Página -->");
+  printf("<!-- Conteudo da Pagina -->");
   printf("%s", resposta);
   printf("<div id=\"fooster\">");
   printf("Trabalho feito por Amanda Lima Ribeiro e Vanderlei de Brito Junior - UFSCar - CAP 2017/01");
