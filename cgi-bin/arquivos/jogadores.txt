@@ -1,4 +1,2 @@
-NOME: Vanderlei
-RA: 636932
-PARTIDAS: 0
-
+NOME: XXXX
+RA: 1234

@@ -9,13 +9,14 @@
 int main(){
   int i, flag=0, certa=0;
   int nLinhas=0, tamanhoPalavra=0;
-  char caracter, caracterEscolhido, caracterDigitado;
-  char *link, palavra[15]={' '}, acerto[15]={' '};
-  char letrasErradas[7]={' '};
+  char caracter, caracterEscolhido;
+  char* link, palavra[15]={' '}, acerto[15]={' '};
+  char letrasErradas[7]={' '}, dados[45];
     srand(time(NULL));
     FILE *pArquivo;
-    //strcpy(link, "nome=Vanderlei&ra=636932&letra=w");
     link = getenv("QUERY_STRING");
+
+    strcpy(dados,link);
 
     //Função de Verificadão de Jogadores
       flag = (verificacaoJogador(link));
@@ -23,6 +24,7 @@ int main(){
         flag = (novoJogador(link));
       }
 
+      //Se flag for igual a 10, cadastro criado e jogo iniciado
     if(flag == 10){
       if((pArquivo=fopen("arquivos/palavraEscolhida.txt", "r")) == NULL){
         //Contagem de Linhas do Arquivo
@@ -51,7 +53,7 @@ int main(){
           fclose(pArquivo);
           pArquivo = fopen("arquivos/letrasCorretas.txt", "w");
           fclose(pArquivo);
-          pArquivo = fopen("arquivos/letrasErradas.txt", "w");;
+          pArquivo = fopen("arquivos/letrasErradas.txt", "w");
           fclose(pArquivo);
 
         }
@@ -62,7 +64,7 @@ int main(){
           fclose(pArquivo);
 
           //Letra digitada pelo usuario
-          sscanf(link, "letra=%c", caracterEscolhido);
+          sscanf(dados, "nome=XXXX&ra=1234&letra=%c", &caracterEscolhido);
           caracterEscolhido = toupper(caracterEscolhido);
 
           for(i=0; i<tamanhoPalavra; i++){
@@ -77,7 +79,6 @@ int main(){
               acerto[i] = caracterEscolhido;
               fprintf(pArquivo, "%s", acerto);
               fclose(pArquivo);
-
 
               certa+=1;
             }
@@ -98,25 +99,17 @@ int main(){
         }
         pArquivo = fopen("arquivos/letrasErradas.txt", "r");
         fgets(letrasErradas, sizeof(letrasErradas), pArquivo);
+        //Condição de Derrota
         if(strlen(letrasErradas)==6)
         {
           flag = 12;
           fclose(pArquivo);
-          remove("arquivos/tracos.txt");
-          remove("arquivos/letrasErradas.txt");
-          remove("arquivos/letrasCorretas.txt");
-          remove("arquivos/palavraEscolhida.txt");
         }
-
         pArquivo = NULL;
-
+        //Condição de Vitoria
         if(strcmp(acerto, palavra)==0)
         {
           flag = 13;
-          remove("arquivos/tracos.txt");
-          remove("arquivos/letrasErradas.txt");
-          remove("arquivos/letrasCorretas.txt");
-          remove("arquivos/palavraEscolhida.txt");
         }
     }
 

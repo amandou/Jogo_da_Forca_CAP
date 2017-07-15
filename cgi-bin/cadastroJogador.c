@@ -53,7 +53,7 @@ int novoJogador (char* link){
     sscanf(link, "nome=%[^&]&ra=%d", jogador.nome, &jogador.ra);
     pJogadores = fopen("arquivos/jogadores.txt", "a");
     fprintf(pJogadores, "NOME: %s\n", jogador.nome);
-    fprintf(pJogadores, "RA: %d\nPARTIDAS: %d\n\n", jogador.ra, jogador.partidas=0);
+    fprintf(pJogadores, "RA: %d\n\n", jogador.ra);
   }
   fclose(pJogadores); pJogadores = NULL;
   return flag;
