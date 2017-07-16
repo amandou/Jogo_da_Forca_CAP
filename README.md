@@ -4,13 +4,13 @@
 
 ### Controle de Projeto - Coisas há fazer:
 
-1. * [ ] Programação em C
+1. * [x] Programação em C
   + * [x]   Sistema de Cadastro - _Vanderlei (08/07/2017)_
   + * [x]   Leitura de Palavras do Arquivo - _Vanderlei (Obrigado [Lorhan](https://github.com/LorhanSohaky))(10/07/2017)_
   + * [x]   Aleatoriedade na Leitura de Palavras - _Vanderlei e Amanda(10/07/2017)_
   + * [x]   Mesma Palavra Durante a Partida - _Vanderlei e Amanda(10/07/2017)_
   + * [x]   Receber Dados e Compará-los - _Amanda e Vanderlei(14/07/2017)_
-  + * [ ]   Retornar Letras Corretas e Erradas
+  + * [x]   Retornar Letras Corretas e Erradas - _Vanderlei(15/07/2017)_
   + * [x]   Condições de Vitória - _Amanda e Vanderlei(14/07/2017)_
   + * [x]   Condições de Derrota - _Amanda e Vanderlei(14/07/2017)_
 
@@ -18,7 +18,7 @@
   + * [x]   Criação Inicial - _Amanda (07/07/2017)_
   + * [x]   Criação de Campos de Recebimento de Dados - _Amanda(14/07/2017)_
   + * [x]   Criação de Campos de Impressão de Dados - _Amanda(15/07/2017)_
-  + * [ ]   Formatação e Ajuste de Tamanhos e Fontes
+  + * [ ]   Formatação e Ajuste de Tamanhos e Fontes - _Amanda e Vanderlei(15/07/2017)_
 
 3. * [x]  Mídia
   + * [x]   Criação de Background - _Amanda (09/07/2017)_

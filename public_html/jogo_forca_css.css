@@ -34,6 +34,31 @@ div1{
 	font-weight: bold;
 }
 
+div2{
+	color: white;
+	font-size: 150px;
+	font-family: DJB Chalk It Up;
+  margin-bottom: 200px;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+div3{
+  color: white;
+  font-size: 35px;
+  font-family: DJB Chalk It Up;
+  font-weight: normal;
+}
+
+div4{
+  color: white;
+  font-size: 85px;
+  font-family: DJB Chalk It Up;
+  font-style: oblique;
+  font-weight: normal;
+  letter-spacing: 20px;
+}
+
 divderrota{
 	color: white;
 	font-size: 400px;
@@ -79,7 +104,7 @@ divvitoria{
 	background-image: url("media/buttonBack.png");
 }
 
-#fooster{
+#footer{
   color: white;
   font-family: DJB Chalk It Up;
   font-style: oblique;
@@ -99,6 +124,6 @@ divvitoria{
 }
 
 #imagemForca{
-  display: block;
-  margin: 10 auto;
+  float: left;
+  margin-left: 60px;
 }
