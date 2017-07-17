@@ -14,11 +14,11 @@
   + * [x]   Condições de Vitória - _Amanda e Vanderlei(14/07/2017)_
   + * [x]   Condições de Derrota - _Amanda e Vanderlei(14/07/2017)_
 
-2. * [ ] Formatação em HTML/CSS
+2. * [x] Formatação em HTML/CSS
   + * [x]   Criação Inicial - _Amanda (07/07/2017)_
   + * [x]   Criação de Campos de Recebimento de Dados - _Amanda(14/07/2017)_
   + * [x]   Criação de Campos de Impressão de Dados - _Amanda(15/07/2017)_
-  + * [ ]   Formatação e Ajuste de Tamanhos e Fontes - _Amanda e Vanderlei(15/07/2017)_
+  + * [x]   Formatação e Ajuste de Tamanhos e Fontes - _Amanda e Vanderlei(15/07/2017)_
 
 3. * [x]  Mídia
   + * [x]   Criação de Background - _Amanda (09/07/2017)_
