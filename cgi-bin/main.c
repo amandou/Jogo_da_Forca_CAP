@@ -11,15 +11,9 @@ int main(){
   int nLinhas=0, tamanhoPalavra=0;
   char caracter, caracterEscolhido;
   char* link;
+
   char palavra[15]={' '}, acerto[15]={' '};
   char letrasErradas[7]={' '}, dados[45];
-
-/*        -----Exĺicação das variaveis-----
-nLinhas = numero de linhas
-
-*/
-
-
 
     srand(time(NULL)); // Faz com que a função rand() sorteie valores aleatorios
     FILE *pArquivo;
@@ -91,7 +85,7 @@ nLinhas = numero de linhas
           fclose(pArquivo);
 
           //Letra digitada pelo usuario
-          sscanf(dados, "nome=XXXX&ra=1234&letra=%c", &caracterEscolhido);
+          sscanf(dados, "nome=%*[^&]&ra=%*d&letra=%c", &caracterEscolhido);
           // transforma o caracter digitado pelo usuario em maiusculo
           caracterEscolhido = toupper(caracterEscolhido);
 
@@ -161,7 +155,7 @@ nLinhas = numero de linhas
 
 
   //Função de impressão do HTML
-    impressaoHTML(flag);
+    impressaoHTML(flag, link);
 
   return 0;
 }

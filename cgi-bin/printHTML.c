@@ -3,14 +3,17 @@
 #include <string.h>
 #include "printHTML.h"      //Identificação da Biblioteca criada
                     // numeroResposta recebe flag
-void impressaoHTML (int numeroResposta){
+void impressaoHTML (int numeroResposta, char* link){
   FILE *pArquivo;
+  int ra;
   char resposta[1000]={'\n'};
+  char nome[60];
   char erro[7] = {' '},palavraEscolhida[15] = {' '},tracos[15] = {' '};
 
+  sscanf(link, "nome=%[^&]&ra=%d", nome, &ra);
   switch(numeroResposta){
       case 1: // equivalente a flag 01
-        snprintf(resposta, sizeof resposta, "Erro na abertura dos arquivos!");
+        snprintf(resposta, sizeof resposta, "<div1>Erro na abertura dos arquivos!</div1>");
         break;
       case 2: // equivalente a flag 02
         snprintf(resposta, sizeof resposta, "<div1>Digite um nome!</div1>");
@@ -41,11 +44,11 @@ void impressaoHTML (int numeroResposta){
                                             "<img src=\"../media/hangman0.png\" id = \"imagemForca\"><br>"  //Imagem da forca
                                             "<br><div2> %s </div2>"
                                             "<form action = \"jogo_forca.cgi\">"
-                                            "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
-                                            "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
+                                            "<input type=\"hidden\" name=\"nome\" value=\"%s\">"
+                                            "<input type=\"hidden\" name=\"ra\" value=\"%d\">"
                                             "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
                                             "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
-                                            "</form>", erro, tracos);
+                                            "</form>", erro, tracos, nome, ra);
         }
       /*
       Se não tiver apenas um erro, entra na outra condição e verifica o tamanho da string erro
@@ -55,11 +58,11 @@ void impressaoHTML (int numeroResposta){
                                             "<img src=\"../media/hangman%d.png\" id = \"imagemForca\"><br>"  //Imagem da forca
                                             "<br><div2> %s </div2>"
                                             "<form action = \"jogo_forca.cgi\">"
-                                            "<input type=\"hidden\" name=\"nome\" value=\"XXXX\">"
-                                            "<input type=\"hidden\" name=\"ra\" value=\"1234\">"
+                                            "<input type=\"hidden\" name=\"nome\" value=\"%s\">"
+                                            "<input type=\"hidden\" name=\"ra\" value=\"%d\">"
                                             "<div1> <label> TENTATIVA: <input name=\"letra\" size=\"2\"> </label> </div1>"   // Criação do formulario para o usuário digitar a letra
                                             "<input type = \"submit\" id=\"botaoEscrever\" value=\"\">" //Botão de tentativa
-                                            "</form>", erro,strlen(erro), tracos);
+                                            "</form>", erro,strlen(erro), tracos, nome, ra);
 
       }
       // Caso o jogador erre pela 6 vez a flag 12 é atingga, portanto o jogador perde
@@ -68,8 +71,11 @@ void impressaoHTML (int numeroResposta){
         break;
 
       case 11: //Novo cadastro, equivalente a flag 11
-        snprintf(resposta, sizeof resposta, "<div1>Cadastro feito com sucesso... Boa Sorte!<br></div1>"
-                                            "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"history.go(-1)\">");
+        snprintf(resposta, sizeof resposta,  "<div1>A Professora Vânia Neris, completamente atolada de provas para corrigir<br>"
+                                             "pediu uma pequena ajuda ao douturando Franco. Ela passou a importante missão<br>"
+                                             "de descobrir e substituir as palavras relacionadas a computação usadas pelos alunos em suas provas.<br>"
+                                             "Ajude o Franco... A bolsa dele depende de VOCÊ!!<br></div1>"
+                                             "<input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"history.go(-1)\">");
         break;
 
         // Se o jogador Perdeu, equivalente a flag 12
@@ -78,9 +84,10 @@ void impressaoHTML (int numeroResposta){
         if(pArquivo == NULL) // Verificar se a abertura do arquivo foi feita com sucesso
           printf("ERRO! 12");
         fscanf(pArquivo, "%s", &palavraEscolhida); // leitura da palavra escolhida
-        snprintf(resposta, sizeof resposta, "<divderrota> Derrota! </divderrota><br>"
-                                            "<br><div1> A palavra era: %s </div1>" //Apresentação da palavra sorteado aleatoriamente
-                                            "<br><input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"parent.location=\'http://cap.dc.ufscar.br/~743504/jogo_forca_html.html\'\">", palavraEscolhida); //Botão de voltare
+        snprintf(resposta, sizeof resposta,  "<divderrota> Derrota! </divderrota><br>"
+                                             "<div1>Franco perdeu a bolsa por sua causa... Você é uma péssima pessoa!</div1>"
+                                             "<br><div1> A palavra era: %s </div1>" //Apresentação da palavra sorteado aleatoriamente
+                                             "<br><input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"parent.location=\'http://cap.dc.ufscar.br/~636932/jogo_forca_html.html\'\">", palavraEscolhida); //Botão de voltare
         fclose(pArquivo);
         //Fechamento dos arquivos
         remove("arquivos/tracos.txt");
@@ -96,9 +103,10 @@ void impressaoHTML (int numeroResposta){
         if(pArquivo == NULL) // Verificar se a abertura do arquivo foi feita com sucesso
           printf("ERRO! 13");
         fscanf(pArquivo, "%s", &palavraEscolhida); // leitura da palavra escolhida
-        snprintf(resposta, sizeof resposta, "<divvitoria> Vitoria! </divvitoria><br>"
-                                            "<br><div1> A palavra era: %s </div1>" // Apresnetação da palavra sorteada aleatoriamente
-                                            "<br><input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"parent.location=\'http://cap.dc.ufscar.br/~743504/jogo_forca_html.html\'\">", palavraEscolhida); //Botão de voltar
+        snprintf(resposta, sizeof resposta,  "<divvitoria> Vitoria! </divvitoria><br>"
+                                             "<div1>Franco ficou tão feliz que tentou te dar um beijo na boca</div1>"
+                                             "<br><div1> A palavra era: %s </div1>" // Apresnetação da palavra sorteada aleatoriamente
+                                             "<br><input type = \"submit\" id=\"botaoVoltar\" value=\"\" onClick=\"parent.location=\'http://cap.dc.ufscar.br/~636932/jogo_forca_html.html\'\">", palavraEscolhida); //Botão de voltar
         fclose(pArquivo);
         //Fechamento dos arquivos
         remove("arquivos/tracos.txt");
